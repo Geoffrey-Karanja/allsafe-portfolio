@@ -3,7 +3,7 @@
 > **CYBER WARFARE INTERFACE SIMULATION** - An immersive frontend portfolio demonstrating elite cybersecurity operational interfaces with cinematic visual effects and tactical interactions.
 
 ## 🎯 **LIVE DEMO**
-![GitHub Pages](https://github.com/Geoffrey-Karanja/allsafe-portfolio.git)
+![GitHub Pages](https://geoffrey-karanja.github.io/allsafe-portfolio/)
 [![Download Source](https://img.shields.io/badge/💾_DOWNLOAD_CODE-ff0033?style=for-the-badge&logo=github)](https://github.com/Geoffrey-Karanja/allsafe-portfolio.git/archive/refs/heads/main.zip)
 
 ---
