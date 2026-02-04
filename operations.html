@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AllSafe Operations — War Room Interface</title>
+  
+  <!-- CYBER CDN ARMADA -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;700&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <!-- Unified Navigation CSS -->
+<link rel="stylesheet" href="nav.css">
+  <!-- OUR BLOOD -->
+  <link rel="stylesheet" href="operations.css">
+</head>
+<body class="war-room-bg">
+
+  <!-- MATRIX OVERLAY -->
+  <div id="matrixOverlay"></div>
+  
+  <!-- THREAT ALERT SYSTEM -->
+  <div class="threat-alert-container" id="threatAlerts">
+    <!-- Alerts injected here -->
+  </div>
+  <!-- CYBER NAVBAR -->
+<nav class="cyber-navbar">
+  <div class="nav-container">
+    <div class="nav-brand">
+      <a href="index.html">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">ALLSAFE</span>
+        <span class="logo-sub">CYBER</span>
+      </a>
+    </div>
+    
+    <div class="nav-menu">
+      <a href="index.html" class="nav-link">
+        <i class="fas fa-home"></i>
+        <span>HOME</span>
+      </a>
+      <a href="about.html" class="nav-link">
+        <i class="fas fa-users"></i>
+        <span>ABOUT</span>
+      </a>
+      <a href="operations.html" class="nav-link active war-room-btn">
+        <i class="fas fa-crosshairs"></i>
+        <span>WAR ROOM</span>
+      </a>
+      <div class="nav-status">
+        <div class="status-dot online"></div>
+        <span class="status-text">SYSTEMS ONLINE</span>
+      </div>
+    </div>
+    
+    <button class="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+  <!-- SATELLITE NAVIGATION -->
+  <div class="sat-nav">
+    <div class="sat-nav-inner">
+      <div class="sat-nav-header">
+        <span class="sat-nav-title">TACTICAL OVERLAY</span>
+        <span class="sat-nav-status active">ONLINE</span>
+      </div>
+      <div class="sat-nav-grid">
+        <div class="sat-nav-item active" data-target="dashboard">
+          <i class="fas fa-crosshairs"></i>
+          <span>DASHBOARD</span>
+        </div>
+        <div class="sat-nav-item" data-target="launch">
+          <i class="fas fa-rocket"></i>
+          <span>LAUNCH</span>
+        </div>
+
+        
+        <div class="sat-nav-item" data-target="intel">
+          <i class="fas fa-eye"></i>
+          <span>INTEL</span>
+        </div>
+        <div class="sat-nav-item" data-target="network">
+          <i class="fas fa-network-wired"></i>
+          <span>NETWORK</span>
+        </div>
+        <div class="sat-nav-item" data-target="comms">
+          <i class="fas fa-satellite"></i>
+          <span>COMMS</span>
+        </div>
+        <div class="sat-nav-item" data-target="logs">
+          <i class="fas fa-scroll"></i>
+          <span>LOGS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- MAIN WAR ROOM -->
+  <main class="war-room">
+    <!-- DASHBOARD SECTION -->
+    <section class="war-section active" id="dashboard">
+      <div class="section-header">
+        <h1 class="war-title">
+          <span class="title-glitch">WAR</span>
+          <span class="title-glitch">ROOM</span>
+          <span class="title-version">v5.1.3</span>
+        </h1>
+        <div class="war-status">
+          <div class="status-item">
+            <span class="status-label">THREAT LEVEL</span>
+            <span class="status-value critical">CRITICAL</span>
+          </div>
+          <div class="status-item">
+            <span class="status-label">AI READINESS</span>
+            <span class="status-value online">98%</span>
+          </div>
+          <div class="status-item">
+            <span class="status-label">OPERATIVES</span>
+            <span class="status-value">247/250</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="dashboard-grid">
+        <!-- QUICK LAUNCH -->
+        <div class="dashboard-card launch-card">
+          <div class="card-header">
+            <h3><i class="fas fa-bolt"></i> QUICK LAUNCH</h3>
+            <div class="card-badge">ACTIVE</div>
+          </div>
+          <div class="card-body">
+            <div class="launch-options">
+              <button class="launch-option" data-weapon="ddos">
+                <div class="option-icon">
+                  <i class="fas fa-cloud-meatball"></i>
+                </div>
+                <div class="option-info">
+                  <h4>DDoS COUNTER</h4>
+                  <p>Flood attacker infrastructure</p>
+                </div>
+                <div class="option-status ready"></div>
+              </button>
+              
+              <button class="launch-option" data-weapon="honeypot">
+                <div class="option-icon">
+                  <i class="fas fa-jar"></i>
+                </div>
+                <div class="option-info">
+                  <h4>HONEYPOT DEPLOY</h4>
+                  <p>Trap & analyze attackers</p>
+                </div>
+                <div class="option-status ready"></div>
+              </button>
+              
+              <button class="launch-option" data-weapon="decrypt">
+                <div class="option-icon">
+                  <i class="fas fa-unlock"></i>
+                </div>
+                <div class="option-info">
+                  <h4>RANSOMWARE DECRYPT</h4>
+                  <p>Neutralize encryption</p>
+                </div>
+                <div class="option-status ready"></div>
+              </button>
+              
+              <button class="launch-option" data-weapon="trace">
+                <div class="option-icon">
+                  <i class="fas fa-search-location"></i>
+                </div>
+                <div class="option-info">
+                  <h4>FULL TRACE</h4>
+                  <p>Track to source</p>
+                </div>
+                <div class="option-status warning"></div>
+              </button>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="btn-war" id="quickLaunch">
+              <i class="fas fa-play"></i> EXECUTE SELECTED
+            </button>
+          </div>
+        </div>
+        
+        <!-- LIVE THREAT MAP -->
+        <div class="dashboard-card map-card">
+          <div class="card-header">
+            <h3><i class="fas fa-globe-americas"></i> LIVE THREAT MAP</h3>
+            <div class="card-controls">
+              <button class="ctrl-btn"><i class="fas fa-plus"></i></button>
+              <button class="ctrl-btn"><i class="fas fa-minus"></i></button>
+              <button class="ctrl-btn"><i class="fas fa-sync"></i></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="threat-map" id="liveThreatMap">
+              <!-- Threat map visualization -->
+              <div class="map-grid"></div>
+              <div class="map-legend">
+                <div class="legend-item"><span class="legend-dot ransomware"></span> Ransomware</div>
+                <div class="legend-item"><span class="legend-dot phishing"></span> Phishing</div>
+                <div class="legend-item"><span class="legend-dot ddos"></span> DDoS</div>
+                <div class="legend-item"><span class="legend-dot espionage"></span> Espionage</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="map-stats">
+              <div class="map-stat">
+                <span class="stat-value">142</span>
+                <span class="stat-label">ACTIVE</span>
+              </div>
+              <div class="map-stat">
+                <span class="stat-value">47</span>
+                <span class="stat-label">NEUTRALIZED</span>
+              </div>
+              <div class="map-stat">
+                <span class="stat-value">12</span>
+                <span class="stat-label">ESCALATING</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- AI ANALYST -->
+        <div class="dashboard-card ai-card">
+          <div class="card-header">
+            <h3><i class="fas fa-robot"></i> AI ANALYST</h3>
+            <div class="card-badge ai">THINKING</div>
+          </div>
+          <div class="card-body">
+            <div class="ai-chat">
+              <div class="ai-message">
+                <div class="message-avatar">
+                  <i class="fas fa-brain"></i>
+                </div>
+                <div class="message-content">
+                  <div class="message-header">
+                    <span class="message-sender">HAVOC AI</span>
+                    <span class="message-time">12:04:23</span>
+                  </div>
+                  <p class="message-text">Detecting coordinated attack pattern across financial sector. Probability of state-sponsored: 78%.</p>
+                </div>
+              </div>
+              
+              <div class="user-message">
+                <div class="message-content">
+                  <div class="message-header">
+                    <span class="message-sender">OPERATOR</span>
+                    <span class="message-time">12:04:45</span>
+                  </div>
+                  <p class="message-text">Recommend countermeasures.</p>
+                </div>
+                <div class="message-avatar">
+                  <i class="fas fa-user"></i>
+                </div>
+              </div>
+              
+              <div class="ai-message">
+                <div class="message-avatar">
+                  <i class="fas fa-brain"></i>
+                </div>
+                <div class="message-content">
+                  <div class="message-header">
+                    <span class="message-sender">HAVOC AI</span>
+                    <span class="message-time">12:04:52</span>
+                  </div>
+                  <p class="message-text">1. Deploy decoy financial data (honeypot)<br>2. Trace C2 servers<br>3. Prepare DDoS countermeasures<br>Estimated success: 92%</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="ai-input">
+              <input type="text" placeholder="Query the AI analyst..." id="aiQuery">
+              <button class="btn-send"><i class="fas fa-paper-plane"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- SYSTEM STATUS -->
+        <div class="dashboard-card status-card">
+          <div class="card-header">
+            <h3><i class="fas fa-heartbeat"></i> SYSTEM STATUS</h3>
+            <div class="card-badge optimal">OPTIMAL</div>
+          </div>
+          <div class="card-body">
+            <div class="status-grid">
+              <div class="status-item-system">
+                <div class="system-icon">
+                  <i class="fas fa-server"></i>
+                </div>
+                <div class="system-info">
+                  <h5>QUANTUM CLUSTER</h5>
+                  <p>14.2 PB processing</p>
+                </div>
+                <div class="system-status online">100%</div>
+              </div>
+              
+              <div class="status-item-system">
+                <div class="system-icon">
+                  <i class="fas fa-satellite"></i>
+                </div>
+                <div class="system-info">
+                  <h5>GLOBAL SENSORS</h5>
+                  <p>142 nodes online</p>
+                </div>
+                <div class="system-status online">98%</div>
+              </div>
+              
+              <div class="status-item-system">
+                <div class="system-icon">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="system-info">
+                  <h5>DEFENSE GRID</h5>
+                  <p>All layers active</p>
+                </div>
+                <div class="system-status online">100%</div>
+              </div>
+              
+              <div class="status-item-system">
+                <div class="system-icon">
+                  <i class="fas fa-database"></i>
+                </div>
+                <div class="system-info">
+                  <h5>THREAT INTELLIGENCE</h5>
+                  <p>Updated 2 min ago</p>
+                </div>
+                <div class="system-status warning">87%</div>
+              </div>
+            </div>
+            
+            <div class="status-meter">
+              <div class="meter-label">OVERALL READINESS</div>
+              <div class="meter-bar">
+                <div class="meter-fill" style="width: 96%"></div>
+              </div>
+              <div class="meter-value">96%</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- ACTIVE OPERATIONS -->
+        <div class="dashboard-card ops-card">
+          <div class="card-header">
+            <h3><i class="fas fa-user-secret"></i> ACTIVE OPERATIONS</h3>
+            <div class="card-badge">12 ACTIVE</div>
+          </div>
+          <div class="card-body">
+            <div class="ops-list">
+              <div class="op-item">
+                <div class="op-icon">
+                  <i class="fas fa-skull-crossbones"></i>
+                </div>
+                <div class="op-details">
+                  <h5>OPERATION: PHANTOM STRIKE</h5>
+                  <p>Counter-espionage • In progress</p>
+                </div>
+                <div class="op-status active"></div>
+              </div>
+              
+              <div class="op-item">
+                <div class="op-icon">
+                  <i class="fas fa-virus"></i>
+                </div>
+                <div class="op-details">
+                  <h5>OPERATION: MALWARE RECLAIM</h5>
+                  <p>Botnet takeover • 87% complete</p>
+                </div>
+                <div class="op-status active"></div>
+              </div>
+              
+              <div class="op-item">
+                <div class="op-icon">
+                  <i class="fas fa-lock"></i>
+                </div>
+                <div class="op-details">
+                  <h5>OPERATION: DARKWEB STING</h5>
+                  <p>Hacker forum infiltration • Monitoring</p>
+                </div>
+                <div class="op-status warning"></div>
+              </div>
+              
+              <div class="op-item">
+                <div class="op-icon">
+                  <i class="fas fa-radar"></i>
+                </div>
+                <div class="op-details">
+                  <h5>OPERATION: SENTINEL WATCH</h5>
+                  <p>24/7 monitoring • All sectors</p>
+                </div>
+                <div class="op-status online"></div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="btn-war outline">
+              <i class="fas fa-plus"></i> DEPLOY NEW OP
+            </button>
+            <button class="btn-war">
+              <i class="fas fa-list"></i> VIEW ALL
+            </button>
+          </div>
+        </div>
+        
+        <!-- COMMAND TERMINAL -->
+        <div class="dashboard-card terminal-card">
+          <div class="card-header">
+            <h3><i class="fas fa-terminal"></i> COMMAND TERMINAL</h3>
+            <div class="card-badge">ROOT ACCESS</div>
+          </div>
+          <div class="card-body">
+            <div class="war-terminal" id="commandTerminal">
+              <!-- Terminal output injected here -->
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="terminal-input">
+              <span class="prompt">root@warroom:~#</span>
+              <input type="text" id="terminalInput" autocomplete="off">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- LAUNCH SECTION -->
+    <section class="war-section" id="launch">
+      <div class="section-header">
+        <h1 class="war-title">
+          <span class="title-glitch">WEAPONS</span>
+          <span class="title-glitch">LAUNCH</span>
+          <span class="title-version">ARMED</span>
+        </h1>
+        <div class="war-status">
+          <div class="status-item">
+            <span class="status-label">CLEARANCE</span>
+            <span class="status-value critical">LEVEL-9</span>
+          </div>
+          <div class="status-item">
+            <span class="status-label">WEAPONS HOT</span>
+            <span class="status-value">READY</span>
+          </div>
+          <div class="status-item">
+            <span class="status-label">TARGETS LOCKED</span>
+            <span class="status-value">8</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="launch-interface">
+        <div class="weapon-selector">
+          <div class="weapon-category active" data-category="defensive">
+            <i class="fas fa-shield-alt"></i>
+            <span>DEFENSIVE</span>
+          </div>
+          <div class="weapon-category" data-category="offensive">
+            <i class="fas fa-crosshairs"></i>
+            <span>OFFENSIVE</span>
+          </div>
+          <div class="weapon-category" data-category="intel">
+            <i class="fas fa-eye"></i>
+            <span>INTELLIGENCE</span>
+          </div>
+          <div class="weapon-category" data-category="ai">
+            <i class="fas fa-robot"></i>
+            <span>AI WEAPONS</span>
+          </div>
+          <div class="weapon-category" data-category="classified">
+            <i class="fas fa-lock"></i>
+            <span>CLASSIFIED</span>
+          </div>
+        </div>
+        
+        <div class="weapon-display">
+          <div class="weapon-info">
+            <div class="weapon-header">
+              <h2 id="weaponName">DDoS COUNTERMEASURE SYSTEM</h2>
+              <div class="weapon-code">DCS-2026</div>
+            </div>
+            <div class="weapon-description">
+              <p>Overwhelms attacker infrastructure with coordinated traffic floods. Uses reclaimed botnet nodes to turn attacker resources against them.</p>
+            </div>
+            <div class="weapon-stats">
+              <div class="weapon-stat">
+                <span class="stat-label">EFFECTIVENESS</span>
+                <span class="stat-value">94%</span>
+              </div>
+              <div class="weapon-stat">
+                <span class="stat-label">RESPONSE TIME</span>
+                <span class="stat-value">8.2s</span>
+              </div>
+              <div class="weapon-stat">
+                <span class="stat-label">COLLATERAL RISK</span>
+                <span class="stat-value">LOW</span>
+              </div>
+              <div class="weapon-stat">
+                <span class="stat-label">AUTHORIZATION</span>
+                <span class="stat-value">LEVEL-5</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="weapon-controls">
+            <div class="control-group">
+              <label for="targetInput">TARGET SPECIFICATION</label>
+              <input type="text" id="targetInput" placeholder="IP/CIDR/Domain...">
+            </div>
+            
+            <div class="control-group">
+              <label for="intensitySlider">ATTACK INTENSITY</label>
+              <input type="range" id="intensitySlider" min="1" max="10" value="5">
+              <div class="slider-labels">
+                <span>STEALTH</span>
+                <span>OVERWHELMING</span>
+              </div>
+            </div>
+            
+            <div class="control-group">
+              <label for="durationSelect">DURATION</label>
+              <select id="durationSelect">
+                <option value="30">30 seconds</option>
+                <option value="60">1 minute</option>
+                <option value="300" selected>5 minutes</option>
+                <option value="600">10 minutes</option>
+                <option value="3600">1 hour</option>
+              </select>
+            </div>
+            
+            <div class="control-group">
+              <div class="checkbox-group">
+                <input type="checkbox" id="stealthMode" checked>
+                <label for="stealthMode">Stealth mode (untraceable)</label>
+              </div>
+              <div class="checkbox-group">
+                <input type="checkbox" id="autoTrace">
+                <label for="autoTrace">Auto-trace to origin</label>
+              </div>
+              <div class="checkbox-group">
+                <input type="checkbox" id="counterAttack">
+                <label for="counterAttack">Enable counter-attack</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="weapon-launch">
+            <div class="launch-sequence">
+              <div class="sequence-step active">1. TARGET LOCKED</div>
+              <div class="sequence-step">2. WEAPONS ARMED</div>
+              <div class="sequence-step">3. CLEARANCE VERIFIED</div>
+              <div class="sequence-step">4. READY TO LAUNCH</div>
+            </div>
+            
+            <div class="launch-authorization">
+              <div class="auth-required">
+                <i class="fas fa-fingerprint"></i>
+                <span>COMMANDER AUTHORIZATION REQUIRED</span>
+              </div>
+              <button class="btn-launch" id="authorizeLaunch">
+                <i class="fas fa-key"></i> AUTHORIZE LAUNCH
+              </button>
+              <button class="btn-launch destructive" id="executeLaunch" disabled>
+                <i class="fas fa-fire"></i> EXECUTE WEAPON DEPLOYMENT
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- INTEL SECTION -->
+    <section class="war-section" id="intel">
+      <div class="section-header">
+        <h1 class="war-title">
+          <span class="title-glitch">THREAT</span>
+          <span class="title-glitch">INTELLIGENCE</span>
+          <span class="title-version">LIVE FEED</span>
+        </h1>
+        <div class="war-status">
+          <div class="status-item">
+            <span class="status-label">ACTIVE THREATS</span>
+            <span class="status-value critical">142</span>
+          </div>
+          <div class="status-item">
+            <span class="status-label">PREDICTIONS TODAY</span>
+            <span class="status-value">328</span>
+          </div>
+          <div class="status-item">
+            <span class="status-label">ACCURACY</span>
+            <span class="status-value online">94%</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="intel-dashboard">
+        <!-- Intel content would be here -->
+        <div class="intel-placeholder">
+          <div class="placeholder-icon">
+            <i class="fas fa-user-secret"></i>
+          </div>
+          <h3>THREAT INTELLIGENCE MODULE</h3>
+          <p>Real-time darkweb monitoring, threat actor profiling, predictive AI analysis, and global attack pattern detection.</p>
+          <button class="btn-war">
+            <i class="fas fa-lock"></i> ACCESS REQUIRES LEVEL-8 CLEARANCE
+          </button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Additional sections for NETWORK, COMMS, LOGS would follow -->
+  </main>
+  
+  <!-- WAR ROOM FOOTER -->
+  <footer class="war-footer">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <div class="footer-title">WAR ROOM STATUS</div>
+        <div class="footer-status">
+          <div class="status-indicator online"></div>
+          <span>OPERATIONAL</span>
+        </div>
+        <div class="footer-time" id="warRoomTime">--:--:-- UTC</div>
+      </div>
+      
+      <div class="footer-section">
+        <div class="footer-title">ACTIVE CONNECTIONS</div>
+        <div class="connection-count">247</div>
+        <div class="connection-types">
+          <span class="connection-type">OPS: 142</span>
+          <span class="connection-type">AI: 8</span>
+          <span class="connection-type">SENSORS: 97</span>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <div class="footer-title">ENCRYPTION STATUS</div>
+        <div class="encryption-badge">
+          <i class="fas fa-lock"></i>
+          <span>QUANTUM-SECURE</span>
+        </div>
+        <div class="encryption-details">AES-512 • CHACHA20 • PQCRYPTO</div>
+      </div>
+      
+      <div class="footer-section">
+        <div class="footer-title">EMERGENCY PROTOCOLS</div>
+        <button class="btn-emergency" id="fullLockdown">
+          <i class="fas fa-radiation"></i> LOCKDOWN
+        </button>
+        <button class="btn-emergency" id="scrambleComms">
+          <i class="fas fa-satellite-dish"></i> SCRAMBLE
+        </button>
+      </div>
+    </div>
+    
+    <div class="footer-legal">
+      <div class="legal-notice">
+        <i class="fas fa-exclamation-triangle"></i>
+        ALL OFFENSIVE ACTIONS AUTHORIZED FOR DEFENSIVE PURPOSES ONLY
+      </div>
+      <div class="war-room-id">
+        WAR ROOM ALPHA • SESSION #2026-042 • OPERATOR: [CLASSIFIED]
+      </div>
+    </div>
+  </footer>
+  
+  <!-- LAUNCH CONFIRMATION MODAL -->
+  <div class="war-modal" id="launchModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-exclamation-triangle"></i> WEAPONS LAUNCH CONFIRMATION</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="confirmation-alert">
+          <div class="alert-icon">
+            <i class="fas fa-skull-crossbones"></i>
+          </div>
+          <div class="alert-content">
+            <h4>FINAL AUTHORIZATION REQUIRED</h4>
+            <p>You are about to deploy offensive cyber measures. This action is logged, monitored, and may have international legal implications.</p>
+            <div class="alert-details">
+              <div class="detail-item">
+                <span class="detail-label">WEAPON:</span>
+                <span class="detail-value" id="modalWeapon">DDoS Countermeasure System</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">TARGET:</span>
+                <span class="detail-value" id="modalTarget">[Not Specified]</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">INTENSITY:</span>
+                <span class="detail-value" id="modalIntensity">5/10</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">OPERATOR:</span>
+                <span class="detail-value">[Your Credentials]</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="authorization-check">
+          <div class="check-item">
+            <input type="checkbox" id="confirmLegal">
+            <label for="confirmLegal">I confirm this action is for defensive purposes only</label>
+          </div>
+          <div class="check-item">
+            <input type="checkbox" id="confirmAuthority">
+            <label for="confirmAuthority">I have proper authority to deploy these measures</label>
+          </div>
+          <div class="check-item">
+            <input type="checkbox" id="confirmTracking">
+            <label for="confirmTracking">I understand this action is logged and monitored</label>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-modal cancel">CANCEL</button>
+        <button class="btn-modal confirm" id="finalConfirm" disabled>
+          <i class="fas fa-check-double"></i> CONFIRM & LAUNCH
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="operations.js"></script>
+  
+</body>
+</html>

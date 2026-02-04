@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About AllSafe — The Cyber War Machine</title>
+  
+  <!-- CDN Army - Stronger, Louder -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <!-- Unified Navigation CSS -->
+<link rel="stylesheet" href="nav.css">
+  
+  <!-- Our Cyber Blood -->
+  <link rel="stylesheet" href="about.css">
+</head>
+<body>
+
+  <!-- MATRIX BACKGROUND -->
+  <canvas id="matrixCanvas"></canvas>
+  
+  <!-- NAVBAR - DARKER, MEANER -->
+  <!-- CYBER NAVBAR -->
+<nav class="cyber-navbar">
+  <div class="nav-container">
+    <div class="nav-brand">
+      <a href="index.html">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">ALLSAFE</span>
+        <span class="logo-sub">CYBER</span>
+      </a>
+    </div>
+    
+    <div class="nav-menu">
+      <a href="index.html" class="nav-link">
+        <i class="fas fa-home"></i>
+        <span>HOME</span>
+      </a>
+      <a href="about.html" class="nav-link active">
+        <i class="fas fa-users"></i>
+        <span>ABOUT</span>
+      </a>
+      <a href="operations.html" class="nav-link war-room-btn">
+        <i class="fas fa-crosshairs"></i>
+        <span>WAR ROOM</span>
+      </a>
+      <div class="nav-status">
+        <div class="status-dot online"></div>
+        <span class="status-text">SYSTEMS ONLINE</span>
+      </div>
+    </div>
+    
+    <button class="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+  
+  <!-- HERO - MANIFESTO -->
+  <section class="hero-about">
+    <div class="container">
+      <div class="row align-items-center min-vh-100">
+        <div class="col-lg-6">
+          <div class="manifesto-badge">
+            <span class="badge-text">MANIFESTO</span>
+            <span class="badge-version">v4.2.7</span>
+          </div>
+          
+          <h1 class="manifesto-title">
+            WE ARE <span class="text-neon-cyan">CYBER</span><br>
+            <span class="text-neon-green">WARFARE</span> <span class="manifesto-sub">REDEFINED</span>
+          </h1>
+          
+          <div class="manifesto-statement">
+            <p class="lead">
+              Founded by former intelligence operatives who grew tired of playing defense. 
+              We believe the best firewall is an <span class="text-neon-pink">offensive strike</span> against the attacker's infrastructure.
+            </p>
+            <p class="manifesto-quote">
+              "We don't wait for breaches. We <span class="text-neon-cyan">hunt</span> the hunters. 
+              We <span class="text-neon-green">weaponize</span> their own tools. We <span class="text-neon-pink">own</span> their networks."
+              <span class="quote-author">— Commander A. Carter, Founder</span>
+            </p>
+          </div>
+          
+          <div class="manifesto-stats">
+            <div class="stat-item">
+              <div class="stat-number" data-target="247">0</div>
+              <div class="stat-label">OPERATIVES</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-target="42">0</div>
+              <div class="stat-label">COUNTRIES</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-target="5200">0</div>
+              <div class="stat-label">THREATS NEUTRALIZED</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-target="99.97">0</div>
+              <div class="stat-label">% UPTIME</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6">
+          <div class="hero-cyberglobe" id="cyberGlobe">
+            <!-- 3D Globe will be here -->
+          </div>
+          <div class="globe-controls">
+            <button class="btn-control" id="rotateGlobe"><i class="fas fa-sync-alt"></i> ROTATE</button>
+            <button class="btn-control" id="zoomIn"><i class="fas fa-search-plus"></i> ZOOM</button>
+            <button class="btn-control" id="showThreats"><i class="fas fa-radar"></i> THREATS</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- OPERATIVES SECTION -->
+  <section id="operatives" class="section-operatives">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="title-pre">ELITE</span>
+          <span class="title-main">CYBER OPERATIVES</span>
+        </h2>
+        <p class="section-subtitle">Former intelligence, military cyber, and black-hat-turned-white-hat specialists.</p>
+      </div>
+      
+      <div class="operatives-grid">
+        <!-- Operative 1 -->
+        <div class="operative-card">
+          <div class="operative-header">
+            <div classoperative-avatar>
+              <img src="https://i.pravatar.cc/150?img=8" alt="Alex Carter">
+              <div class="operative-status active"></div>
+            </div>
+            <div class="operative-rank">
+              <span class="rank-badge">COMMANDER</span>
+              <span class="clearance">LEVEL-9 CLEARANCE</span>
+            </div>
+          </div>
+          <div class="operative-body">
+            <h3 class="operative-name">ALEX CARTER</h3>
+            <p class="operative-title">Founder & Chief Warfare Officer</p>
+            <p class="operative-bio">
+              Former NSA Tailored Access Operations. Led 47 offensive cyber missions. 
+              Developed the "Havoc" AI malware platform.
+            </p>
+            <div class="operative-skills">
+              <span class="skill">AI Warfare</span>
+              <span class="skill">Zero-Day</span>
+              <span class="skill">Infiltration</span>
+            </div>
+          </div>
+          <div class="operative-footer">
+            <button class="btn-operative" data-operative="carter">
+              <i class="fas fa-eye me-1"></i> VIEW PROFILE
+            </button>
+          </div>
+        </div>
+        
+        <!-- Operative 2 -->
+        <div class="operative-card">
+          <div class="operative-header">
+            <div class="operative-avatar">
+              <img src="https://i.pravatar.cc/150?img=11" alt="Maya Rodriguez">
+              <div class="operative-status active"></div>
+            </div>
+            <div class="operative-rank">
+              <span class="rank-badge">DIRECTOR</span>
+              <span class="clearance">LEVEL-8 CLEARANCE</span>
+            </div>
+          </div>
+          <div class="operative-body">
+            <h3 class="operative-name">MAYA RODRIGUEZ</h3>
+            <p class="operative-title">Head of Threat Intelligence</p>
+            <p class="operative-bio">
+              Ex-Mossad Unit 8200. Spearheads our darkweb monitoring division. 
+              Fluent in 8 languages, 4 programming languages.
+            </p>
+            <div class="operative-skills">
+              <span class="skill">OSINT</span>
+              <span class="skill">Darkweb</span>
+              <span class="skill">Linguistics</span>
+            </div>
+          </div>
+          <div class="operative-footer">
+            <button class="btn-operative" data-operative="rodriguez">
+              <i class="fas fa-eye me-1"></i> VIEW PROFILE
+            </button>
+          </div>
+        </div>
+        
+        <!-- Operative 3 -->
+        <div class="operative-card">
+          <div class="operative-header">
+            <div class="operative-avatar">
+              <img src="https://i.pravatar.cc/150?img=32" alt="David Chen">
+              <div class="operative-status on-mission"></div>
+            </div>
+            <div class="operative-rank">
+              <span class="rank-badge">SENIOR AGENT</span>
+              <span class="clearance">LEVEL-7 CLEARANCE</span>
+            </div>
+          </div>
+          <div class="operative-body">
+            <h3 class="operative-name">DAVID CHEN</h3>
+            <p class="operative-title">Quantum Cryptography Lead</p>
+            <p class="operative-bio">
+              MIT Quantum Computing Lab. Building post-quantum encryption that even nation-states can't crack.
+              Currently on mission.
+            </p>
+            <div class="operative-skills">
+              <span class="skill">Quantum</span>
+              <span class="skill">Crypto</span>
+              <span class="skill">Math</span>
+            </div>
+          </div>
+          <div class="operative-footer">
+            <button class="btn-operative" data-operative="chen">
+              <i class="fas fa-eye me-1"></i> VIEW PROFILE
+            </button>
+          </div>
+        </div>
+        
+        <!-- Operative 4 -->
+        <div class="operative-card">
+          <div class="operative-header">
+            <div class="operative-avatar">
+              <img src="https://i.pravatar.cc/150?img=44" alt="Sarah Johnson">
+              <div class="operative-status active"></div>
+            </div>
+            <div class="operative-rank">
+              <span class="rank-badge">AI SPECIALIST</span>
+              <span class="clearance">LEVEL-8 CLEARANCE</span>
+            </div>
+          </div>
+          <div class="operative-body">
+            <h3 class="operative-name">SARAH JOHNSON</h3>
+            <p class="operative-title">Neural Network Architect</p>
+            <p class="operative-bio">
+              Trained our AI on 14TB of malware. Her neural nets predict attacks with 94% accuracy.
+              Doesn't sleep. Literally.
+            </p>
+            <div class="operative-skills">
+              <span class="skill">AI/ML</span>
+              <span class="skill">Neural Nets</span>
+              <span class="skill">Prediction</span>
+            </div>
+          </div>
+          <div class="operative-footer">
+            <button class="btn-operative" data-operative="johnson">
+              <i class="fas fa-eye me-1"></i> VIEW PROFILE
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="section-footer">
+        <p class="recruitment-notice">
+          <i class="fas fa-user-secret me-2"></i>
+          We're hiring. If you can hack the Pentagon (and have permission), we want you.
+          <a href="#" class="recruitment-link">APPLY FOR CLEARANCE →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ARMORY SECTION -->
+  <section id="armory" class="section-armory">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="title-pre">CYBER</span>
+          <span class="title-main">WARFARE ARMORY</span>
+        </h2>
+        <p class="section-subtitle">Our proprietary tools and weaponized AI platforms.</p>
+      </div>
+      
+      <div class="armory-showcase">
+        <div class="armory-tabs">
+          <button class="armory-tab active" data-tab="ai">AI WEAPONS</button>
+          <button class="armory-tab" data-tab="tools">CYBER TOOLS</button>
+          <button class="armory-tab" data-tab="platforms">PLATFORMS</button>
+          <button class="armory-tab" data-tab="classified">CLASSIFIED</button>
+        </div>
+        
+        <div class="armory-content">
+          <div class="armory-panel active" id="ai-weapons">
+            <div class="weapon-card">
+              <div class="weapon-icon">
+                <i class="fas fa-brain"></i>
+              </div>
+              <div class="weapon-info">
+                <h3>HAVOC AI</h3>
+                <p class="weapon-desc">
+                  Self-learning malware that adapts to defense systems. Can rewrite its own code in real-time.
+                </p>
+                <div class="weapon-stats">
+                  <span class="stat"><i class="fas fa-bolt"></i> 98% Evasion Rate</span>
+                  <span class="stat"><i class="fas fa-microchip"></i> 3.2TB Neural Net</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="weapon-card">
+              <div class="weapon-icon">
+                <i class="fas fa-eye"></i>
+              </div>
+              <div class="weapon-info">
+                <h3>OMNISCIENCE</h3>
+                <p class="weapon-desc">
+                  Global threat prediction AI. Analyzes 1.4 million data points per second to forecast attacks.
+                </p>
+                <div class="weapon-stats">
+                  <span class="stat"><i class="fas fa-chart-line"></i> 94% Accuracy</span>
+                  <span class="stat"><i class="fas fa-clock"></i> 48hr Prediction</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="weapon-card">
+              <div class="weapon-icon">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div class="weapon-info">
+                <h3>RECLAIMER BOTNET</h3>
+                <p class="weapon-desc">
+                  We hijack enemy botnets and turn them against their creators. 420,000 zombies reclaimed.
+                </p>
+                <div class="weapon-stats">
+                  <span class="stat"><i class="fas fa-network-wired"></i> 420K Nodes</span>
+                  <span class="stat"><i class="fas fa-shield-alt"></i> Defensive DDOS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="armory-panel" id="cyber-tools">
+            <!-- More content would be here -->
+            <div class="classified-notice">
+              <i class="fas fa-lock"></i>
+              <h4>TOOLS CLASSIFIED</h4>
+              <p>Access requires Level-7 clearance or higher.</p>
+              <button class="btn-request-clearance">REQUEST CLEARANCE</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FACILITIES SECTION -->
+  <section id="facilities" class="section-facilities">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="title-pre">GLOBAL</span>
+          <span class="title-main">OPERATIONS CENTERS</span>
+        </h2>
+      </div>
+      
+      <div class="facilities-map" id="facilitiesMap">
+        <!-- Interactive map will go here -->
+        <div class="map-point" style="top: 30%; left: 25%;" data-facility="virginia">
+          <div class="point-pulse"></div>
+          <div class="point-label">VIRGINIA HQ</div>
+        </div>
+        <div class="map-point" style="top: 40%; left: 50%;" data-facility="berlin">
+          <div class="point-pulse"></div>
+          <div class="point-label">BERLIN SOC</div>
+        </div>
+        <div class="map-point" style="top: 60%; left: 75%;" data-facility="singapore">
+          <div class="point-pulse"></div>
+          <div class="point-label">SINGAPORE</div>
+        </div>
+        <div class="map-point" style="top: 70%; left: 15%;" data-facility="iceland">
+          <div class="point-pulse"></div>
+          <div class="point-label">ICELAND DATA</div>
+        </div>
+      </div>
+      
+      <div class="facilities-info">
+        <div class="facility-details active" id="facility-virginia">
+          <h3>VIRGINIA HEADQUARTERS</h3>
+          <p class="facility-desc">
+            Primary command center. 24/7 operations. EMP-shielded. 50ft underground.
+            Houses our quantum computing cluster and primary AI training servers.
+          </p>
+          <div class="facility-stats">
+            <div class="facility-stat">
+              <div class="stat-value">247</div>
+              <div class="stat-label">OPERATIVES</div>
+            </div>
+            <div class="facility-stat">
+              <div class="stat-value">14.2</div>
+              <div class="stat-label">PETABYTES</div>
+            </div>
+            <div class="facility-stat">
+              <div class="stat-value">99.999%</div>
+              <div class="stat-label">UPTIME</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- TIMELINE SECTION -->
+  <section id="timeline" class="section-timeline">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="title-pre">OPERATIONAL</span>
+          <span class="title-main">CHRONOLOGY</span>
+        </h2>
+      </div>
+      
+      <div class="timeline-container">
+        <div class="timeline-track" id="timelineTrack">
+          <!-- Timeline items will be generated by JS -->
+        </div>
+      </div>
+      
+      <div class="timeline-controls">
+        <button class="btn-timeline" id="timelinePrev"><i class="fas fa-chevron-left"></i></button>
+        <div class="timeline-progress">
+          <div class="progress-bar" id="timelineProgress"></div>
+        </div>
+        <button class="btn-timeline" id="timelineNext"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FOOTER -->
+  <footer class="cyber-footer-about">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3 class="footer-logo">ALLSAFE</h3>
+          <p class="footer-tagline">
+            Cyber warfare redefined. Offense as defense. Victory through superior technology.
+          </p>
+          <div class="footer-security-badge">
+            <i class="fas fa-shield-check"></i>
+            <span>LEVEL-10 SECURE CONNECTION</span>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h4 class="footer-heading">WARFARE DIVISIONS</h4>
+          <ul>
+            <li><a href="#">Threat Intelligence</a></li>
+            <li><a href="#">Active Defense</a></li>
+            <li><a href="#">AI Research</a></li>
+            <li><a href="#">Quantum Crypto</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-contact">
+          <h4 class="footer-heading">WAR ROOM ACCESS</h4>
+          <div class="contact-methods">
+            <div class="contact-method">
+              <i class="fas fa-satellite-dish"></i>
+              <span>ENCRYPTED: SOC@ALLSAFE.CYBER</span>
+            </div>
+            <div class="contact-method">
+              <i class="fas fa-phone-volume"></i>
+              <span>+1-888-ALLSAFE</span>
+            </div>
+            <div class="contact-method">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>COORDINATES CLASSIFIED</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-terminal">
+          <div class="terminal-header">
+            <span>SECURE CHANNEL</span>
+            <span class="terminal-status active"></span>
+          </div>
+          <div class="terminal-output" id="footerTerminal">
+            <!-- Terminal output -->
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="legal-notice">
+          <p>
+            <i class="fas fa-exclamation-triangle"></i>
+            All offensive capabilities are used exclusively for defensive purposes under international law.
+          </p>
+        </div>
+        <div class="copyright">
+          © 2026 ALLSAFE CYBER WARFARE GROUP | WE OWN THE NETWORK
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="about.js"></script>
+  
+</body>
+</html>

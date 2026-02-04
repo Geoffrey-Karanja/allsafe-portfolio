@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AllSafe — Cyber Defense Reimagined</title>
+  
+  <!-- CDN Army -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <!-- Unified Navigation CSS -->
+<link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- MATRIX BACKGROUND -->
+  <canvas id="matrixCanvas"></canvas>
+  
+  <!-- THREAT LEVEL INDICATOR -->
+  <div class="threat-level d-none d-lg-block">
+    <span class="pulse">THREAT LEVEL</span>
+    <br>
+    <span id="threatValue" class="blink">04</span>
+  </div>
+
+  <!-- CYBER NAVBAR -->
+<nav class="cyber-navbar">
+  <div class="nav-container">
+    <div class="nav-brand">
+      <a href="index.html">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">ALLSAFE</span>
+        <span class="logo-sub">CYBER</span>
+      </a>
+    </div>
+    
+    <div class="nav-menu">
+      <a href="index.html" class="nav-link active">
+        <i class="fas fa-home"></i>
+        <span>HOME</span>
+      </a>
+      <a href="about.html" class="nav-link">
+        <i class="fas fa-users"></i>
+        <span>ABOUT</span>
+      </a>
+      <a href="operations.html" class="nav-link war-room-btn">
+        <i class="fas fa-crosshairs"></i>
+        <span>WAR ROOM</span>
+      </a>
+      <div class="nav-status">
+        <div class="status-dot online"></div>
+        <span class="status-text">SYSTEMS ONLINE</span>
+      </div>
+    </div>
+    
+    <button class="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+  
+  <!-- HERO SECTION -->
+  <section class="hero-section container-fluid">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <div class="mb-4">
+            <span class="cyber-badge"><i class="fas fa-bolt me-2"></i>ACTIVE DEFENSE</span>
+            <span class="cyber-badge"><i class="fas fa-brain me-2"></i>AI-POWERED</span>
+            <span class="cyber-badge"><i class="fas fa-shield-alt me-2"></i>ZERO-TRUST</span>
+          </div>
+          
+          <h1 class="hero-glitch" data-text="CYBER WARFARE">CYBER WARFARE<br><span class="text-gradient">REDEFINED</span></h1>
+          
+          <p class="lead mb-5" style="font-size: 1.3rem; color: #a0e7ff;">
+            We don't defend. We <span class="neon-text" style="color: var(--neon-green);">attack the attackers</span>. 
+            Our AI doesn't wait for breaches—it hunts threats across the darkweb, predicts zero-days before they're weaponized, 
+            and turns hacker tools against their creators.
+          </p>
+          
+          <div class="d-flex flex-wrap gap-4 mb-5">
+            <button class="btn btn-lg" id="launchDemo" style="
+              background: linear-gradient(45deg, var(--neon-cyan), #0099cc);
+              color: black;
+              font-weight: 800;
+              padding: 18px 40px;
+              border: none;
+              font-family: 'Orbitron', sans-serif;
+              letter-spacing: 2px;
+            ">
+              <i class="fas fa-rocket me-2"></i> LAUNCH WAR ROOM
+            </button>
+            <button class="btn btn-lg btn-outline-light" style="
+              border: 2px solid var(--neon-pink);
+              color: var(--neon-pink);
+              padding: 18px 40px;
+              font-family: 'Orbitron', sans-serif;
+              letter-spacing: 2px;
+            ">
+              <i class="fas fa-eye me-2"></i> LIVE THREAT FEED
+            </button>
+          </div>
+        </div>
+        
+        <div class="col-lg-5">
+          <!-- LIVE STATS DASHBOARD -->
+          <div class="stat-dashboard">
+            <h3 class="text-center mb-4" style="color: var(--neon-cyan);">
+              <i class="fas fa-chart-line me-2"></i> LIVE OPERATIONS
+            </h3>
+            
+            <div class="row text-center">
+              <div class="col-6 mb-4">
+                <div class="live-stat" id="threatsBlocked">5,247</div>
+                <div class="stat-label">THREATS NEUTRALIZED</div>
+              </div>
+              <div class="col-6 mb-4">
+                <div class="live-stat" id="responseTime">1.8s</div>
+                <div class="stat-label">AVG RESPONSE TIME</div>
+              </div>
+              <div class="col-6">
+                <div class="live-stat" id="uptime">99.97%</div>
+                <div class="stat-label">SYSTEM UPTIME</div>
+              </div>
+              <div class="col-6">
+                <div class="live-stat" id="aiPredictions">342</div>
+                <div class="stat-label">AI PREDICTIONS TODAY</div>
+              </div>
+            </div>
+            
+            <div class="progress mt-4" style="height: 8px; background: rgba(255,255,255,0.1);">
+              <div id="threatMeter" class="progress-bar" role="progressbar" style="
+                width: 65%; 
+                background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan));
+                box-shadow: 0 0 10px var(--neon-cyan);
+              "></div>
+            </div>
+            <div class="text-center mt-2" style="color: #a0e7ff;">
+              GLOBAL THREAT INDEX: <span id="threatPercent">65%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- GLOBAL THREAT MAP -->
+  <section id="threats" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5" style="
+        font-family: 'Orbitron', sans-serif;
+        font-size: 3.5rem;
+        color: var(--neon-pink);
+        text-shadow: 0 0 20px var(--neon-pink);
+      ">
+        <i class="fas fa-globe-americas me-3"></i>LIVE GLOBAL THREAT MAP
+      </h2>
+      
+      <div class="threat-map-container">
+        <div class="threat-map"></div>
+        <!-- Threat pulses will be added by JS -->
+      </div>
+      
+      <div class="row mt-4">
+        <div class="col-md-3 text-center">
+          <div class="cyber-badge" style="border-color: #ff0066; color: #ff0066;">
+            <i class="fas fa-biohazard me-2"></i> RANSOMWARE
+          </div>
+          <div class="mt-2" id="ransomwareCount">0</div>
+        </div>
+        <div class="col-md-3 text-center">
+          <div class="cyber-badge" style="border-color: #ffaa00; color: #ffaa00;">
+            <i class="fas fa-fish me-2"></i> PHISHING
+          </div>
+          <div class="mt-2" id="phishingCount">0</div>
+        </div>
+        <div class="col-md-3 text-center">
+          <div class="cyber-badge" style="border-color: var(--neon-cyan); color: var(--neon-cyan);">
+            <i class="fas fa-network-wired me-2"></i> DDoS
+          </div>
+          <div class="mt-2" id="ddosCount">0</div>
+        </div>
+        <div class="col-md-3 text-center">
+          <div class="cyber-badge" style="border-color: var(--neon-purple); color: var(--neon-purple);">
+            <i class="fas fa-user-secret me-2"></i> ESPIONAGE
+          </div>
+          <div class="mt-2" id="espionageCount">0</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- SERVICES - MILITARY GRADE -->
+  <section id="services" class="py-5" style="background: rgba(5, 10, 20, 0.7);">
+    <div class="container">
+      <h2 class="text-center mb-5" style="
+        font-family: 'Orbitron', sans-serif;
+        font-size: 3rem;
+        color: var(--neon-green);
+        text-shadow: 0 0 20px var(--neon-green);
+      ">
+        <i class="fas fa-crosshairs me-3"></i>OFFENSIVE DEFENSE SERVICES
+      </h2>
+      
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="cyber-card text-center">
+            <div class="mb-4" style="font-size: 4rem; color: var(--neon-cyan);">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h4 class="mb-3">AI THREAT HUNTING</h4>
+            <p class="text-light">Neural networks that learn attacker behavior and predict breaches 48 hours before they happen.</p>
+            <div class="mt-4">
+              <span class="badge bg-dark">DEEP LEARNING</span>
+              <span class="badge bg-dark">PREDICTIVE AI</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="cyber-card text-center">
+            <div class="mb-4" style="font-size: 4rem; color: var(--neon-green);">
+              <i class="fas fa-user-ninja"></i>
+            </div>
+            <h4 class="mb-3">RED TEAM OPERATIONS</h4>
+            <p class="text-light">Elite hackers attack your systems. If they succeed, you learn. If they fail, we celebrate.</p>
+            <div class="mt-4">
+              <span class="badge bg-dark">PENETRATION TESTING</span>
+              <span class="badge bg-dark">SOCIAL ENGINEERING</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="cyber-card text-center">
+            <div class="mb-4" style="font-size: 4rem; color: var(--neon-pink);">
+              <i class="fas fa-virus"></i>
+            </div>
+            <h4 class="mb-3">MALWARE REVERSAL</h4>
+            <p class="text-light">We decompile, analyze, and weaponize malware against its creators. Turn their tools against them.</p>
+            <div class="mt-4">
+              <span class="badge bg-dark">REVERSE ENGINEERING</span>
+              <span class="badge bg-dark">COUNTER-MALWARE</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="cyber-card text-center">
+            <div class="mb-4" style="font-size: 4rem; color: #ff5500;">
+              <i class="fas fa-satellite-dish"></i>
+            </div>
+            <h4 class="mb-3">DARKWEB MONITORING</h4>
+            <p class="text-light">24/7 surveillance of hacker forums, darknet markets, and encrypted channels for threat intelligence.</p>
+            <div class="mt-4">
+              <span class="badge bg-dark">OSINT</span>
+              <span class="badge bg-dark">THREAT INTEL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- AI ANALYST CHAT -->
+  <section id="ai" class="py-5">
+    <div class="container">
+      <div class="ai-chat">
+        <div class="d-flex align-items-center mb-4">
+          <div class="ai-avatar">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div>
+            <h3 class="mb-0" style="color: var(--neon-purple);">ALLSAFE AI ANALYST</h3>
+            <p class="text-muted">Online • Threat Level Analysis Mode</p>
+          </div>
+        </div>
+        
+        <div class="chat-container" style="max-height: 300px; overflow-y: auto;">
+          <div class="chat-message ai-message mb-3">
+            <div class="message-bubble" style="
+              background: rgba(0, 255, 255, 0.1);
+              border: 1px solid var(--neon-cyan);
+              padding: 15px;
+              border-radius: 10px;
+            ">
+              <strong style="color: var(--neon-cyan);">AI:</strong> Hello, Commander. I'm detecting unusual network traffic patterns across 3 client networks. Probability of coordinated attack: 78%.
+            </div>
+          </div>
+          
+          <div class="chat-message user-message mb-3">
+            <div class="message-bubble" style="
+              background: rgba(57, 255, 20, 0.1);
+              border: 1px solid var(--neon-green);
+              padding: 15px;
+              border-radius: 10px;
+              margin-left: 40px;
+            ">
+              <strong style="color: var(--neon-green);">USER:</strong> Analyze source IPs and prepare countermeasures.
+            </div>
+          </div>
+          
+          <div class="chat-message ai-message">
+            <div class="message-bubble" style="
+              background: rgba(0, 255, 255, 0.1);
+              border: 1px solid var(--neon-cyan);
+              padding: 15px;
+              border-radius: 10px;
+            ">
+              <strong style="color: var(--neon-cyan);">AI:</strong> Analysis complete. 42 source IPs across 8 countries. Deploying sinkholing and firewall rules. Estimated neutralization time: 3.2 seconds.
+            </div>
+          </div>
+        </div>
+        
+        <div class="input-group mt-4">
+          <input type="text" class="form-control" style="
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid var(--neon-purple);
+            color: white;
+          " placeholder="Query the AI analyst...">
+          <button class="btn" style="
+            background: linear-gradient(45deg, var(--neon-purple), var(--neon-cyan));
+            color: black;
+            font-weight: bold;
+          ">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- TIMELINE -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5" style="color: var(--neon-cyan); font-family: 'Orbitron';">
+        <i class="fas fa-history me-3"></i>OPERATIONAL TIMELINE
+      </h2>
+      
+      <div class="cyber-timeline">
+        <div class="timeline-node">
+          <h4 style="color: var(--neon-green);">2023 Q4 • COMPANY FOUNDING</h4>
+          <p class="text-light">AllSafe founded by ex-intelligence operatives. First AI models trained on 2TB of malware samples.</p>
+        </div>
+        
+        <div class="timeline-node">
+          <h4 style="color: var(--neon-green);">2024 Q2 • FIRST MAJOR BREACH PREVENTION</h4>
+          <p class="text-light">Predicted and prevented ransomware attack on Fortune 500 company 72 hours before execution.</p>
+        </div>
+        
+        <div class="timeline-node">
+          <h4 style="color: var(--neon-green);">2025 Q1 • GLOBAL SOC EXPANSION</h4>
+          <p class="text-light">Security Operations Centers launched in Singapore, Berlin, and Virginia. 24/7 coverage achieved.</p>
+        </div>
+        
+        <div class="timeline-node">
+          <h4 style="color: var(--neon-green);">2026 Q3 • QUANTUM-RESISTANT ENCRYPTION</h4>
+          <p class="text-light">Deployed post-quantum cryptography across all client networks. Future-proofing against quantum attacks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- TERMINAL -->
+  <section id="terminal" class="py-5">
+    <div class="container">
+      <div class="terminal-header">
+        <h3><i class="fas fa-terminal me-2"></i> ALLSAFE SOC TERMINAL v4.2</h3>
+        <p class="text-muted">Live system monitoring and threat response interface</p>
+      </div>
+      
+      <div class="cyber-terminal" id="liveTerminal">
+        <!-- Terminal content will be injected by JS -->
+      </div>
+      
+      <div class="mt-4 text-center">
+        <button class="btn btn-sm me-2" id="deployCountermeasures" style="
+          background: linear-gradient(45deg, #ff0066, #ff5500);
+          color: white;
+          font-weight: bold;
+        ">
+          <i class="fas fa-fighter-jet me-1"></i> DEPLOY COUNTERMEASURES
+        </button>
+        <button class="btn btn-sm me-2" id="runVirusScan" style="
+          background: linear-gradient(45deg, var(--neon-green), #00cc00);
+          color: black;
+          font-weight: bold;
+        ">
+          <i class="fas fa-search me-1"></i> DEEP SCAN NETWORK
+        </button>
+        <button class="btn btn-sm" id="clearTerminal" style="
+          background: transparent;
+          border: 1px solid var(--neon-cyan);
+          color: var(--neon-cyan);
+        ">
+          <i class="fas fa-eraser me-1"></i> CLEAR TERMINAL
+        </button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FOOTER -->
+  <footer class="cyber-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-5">
+          <div class="footer-logo">ALLSAFE</div>
+          <p class="text-light" style="opacity: 0.8;">
+            Next-generation cyber warfare firm. We don't play defense—we wage information war against threat actors worldwide.
+          </p>
+          <div class="mt-4">
+            <a href="#" class="me-3" style="color: var(--neon-cyan); font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="me-3" style="color: var(--neon-cyan); font-size: 1.5rem;"><i class="fab fa-github"></i></a>
+            <a href="#" class="me-3" style="color: var(--neon-cyan); font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+            <a href="#" style="color: var(--neon-cyan); font-size: 1.5rem;"><i class="fab fa-discord"></i></a>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 mb-5">
+          <h5 class="mb-4" style="color: var(--neon-green);">SERVICES</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" class="text-light">Threat Hunting</a></li>
+            <li class="mb-2"><a href="#" class="text-light">Incident Response</a></li>
+            <li class="mb-2"><a href="#" class="text-light">Red Teaming</a></li>
+            <li class="mb-2"><a href="#" class="text-light">Forensics</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 mb-5">
+          <h5 class="mb-4" style="color: var(--neon-green);">COMPANY</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="about.html" class="text-light">About Us</a></li>
+            <li class="mb-2"><a href="#" class="text-light">Careers</a></li>
+            <li class="mb-2"><a href="#" class="text-light">Research</a></li>
+            <li class="mb-2"><a href="#" class="text-light">Press</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-4 col-md-4 mb-5">
+          <h5 class="mb-4" style="color: var(--neon-green);">24/7 EMERGENCY</h5>
+          <div class="mb-4">
+            <div class="d-flex align-items-center mb-2">
+              <i class="fas fa-phone me-3" style="color: #ff0066;"></i>
+              <span class="text-light">+1-888-555-ALLSAFE</span>
+            </div>
+            <div class="d-flex align-items-center">
+              <i class="fas fa-envelope me-3" style="color: #ff0066;"></i>
+              <span class="text-light">soc@allsafe.cyber</span>
+            </div>
+          </div>
+          
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="Subscribe to threat alerts" style="
+              background: rgba(255,255,255,0.1);
+              border: 1px solid var(--neon-cyan);
+              color: white;
+            ">
+            <button class="btn" style="
+              background: var(--neon-cyan);
+              color: black;
+              font-weight: bold;
+            ">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <hr style="border-color: rgba(0, 255, 255, 0.3);">
+      
+      <div class="row">
+        <div class="col-md-6">
+          <p class="text-muted">
+            © 2026 AllSafe Cyber Warfare Group. All offensive capabilities reserved.
+          </p>
+        </div>
+        <div class="col-md-6 text-end">
+          <p class="text-muted">
+            <i class="fas fa-user-secret me-1"></i> This site is protected by our own AI security systems.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- SCRIPTS ARMAGEDDON -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllSafe Threats</title>
+<link href="threats.css" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+  <div class="logo">AllSafe</div>
+  <ul class="nav-links">
+    <li><a href="who.html">Who</a></li>
+    <li><a href="threats.html" class="active">Threats</a></li>
+    <li><a href="trust.html">Trust</a></li>
+  </ul>
+  <div class="hamburger"><div></div><div></div><div></div></div>
+</nav>
+
+<section id="threats-hero">
+  <h1>Modern & Hidden Cyber Threats</h1>
+  <p>Explore the evolving landscape of cyber threats that lurk in the shadows—some you've never even heard of. From stealthy malware to social engineering, knowledge is the ultimate defense.</p>
+</section>
+
+<section id="threat-carousel" class="threat-carousel">
+  <div class="threat-card">
+    <h3>Fileless Malware</h3>
+    <p>Runs in memory, leaves almost no footprint on disk.</p>
+    <div class="impact">Impact: Stealthy, Hard to Detect</div>
+    <div class="more-info">Exploits system tools like PowerShell; traditional AV may miss it.</div>
+  </div>
+  <div class="threat-card">
+    <h3>Deepfake Phishing</h3>
+    <p>AI-generated media impersonating executives or trusted sources.</p>
+    <div class="impact">Impact: Deception, Financial Loss</div>
+    <div class="more-info">Convincing audio/video messages can trick even trained employees.</div>
+  </div>
+  <div class="threat-card">
+    <h3>Living-off-the-Land</h3>
+    <p>Attackers leverage legitimate software/processes to avoid detection.</p>
+    <div class="impact">Impact: Persistent, Hard to Trace</div>
+    <div class="more-info">Native tools like WMI or PowerShell used to maintain access.</div>
+  </div>
+  <div class="threat-card">
+    <h3>Supply Chain Intrusions</h3>
+    <p>Compromising third-party providers to attack end targets.</p>
+    <div class="impact">Impact: Wide-reaching, Trust Exploited</div>
+    <div class="more-info">Even secure orgs can be breached via compromised dependencies.</div>
+  </div>
+  <div class="threat-card">
+    <h3>IoT Botnets</h3>
+    <p>Networks of compromised IoT devices for large-scale attacks.</p>
+    <div class="impact">Impact: Massive, Distributed</div>
+    <div class="more-info">Found in smart homes, industrial devices, connected systems.</div>
+  </div>
+</section>
+
+<section class="timeline-section">
+  <h2 class="timeline-title">Threat Evolution Timeline</h2>
+  <div class="timeline">
+    <div class="timeline-step timeline-step-left">
+      <h4>2010 — Rise of Ransomware</h4>
+      <p>First ransomware families encrypting user data globally.</p>
+      <span class="year">2010</span>
+    </div>
+    <div class="timeline-step timeline-step-right">
+      <h4>2015 — Advanced Persistent Threats</h4>
+      <p>APT groups target critical infrastructure with organization.</p>
+      <span class="year">2015</span>
+    </div>
+    <div class="timeline-step timeline-step-left">
+      <h4>2020 — AI-Assisted Attacks</h4>
+      <p>Attackers leverage machine learning for phishing & malware.</p>
+      <span class="year">2020</span>
+    </div>
+    <div class="timeline-step timeline-step-right">
+      <h4>2025 — Quantum Threats Emerging</h4>
+      <p>Future attacks could break traditional encryption with quantum computing.</p>
+      <span class="year">2025</span>
+    </div>
+  </div>
+</section>
+
+<section class="stats-section">
+  <h2>Threat Landscape Stats</h2>
+  <div class="stats-cards">
+    <div class="stats-card">
+      <h3>Ransomware Families</h3>
+      <p>1457 new ransomware variants discovered in 2024.</p>
+    </div>
+    <div class="stats-card">
+      <h3>Avg Detection Time</h3>
+      <p>Advanced threats take ~198 days to detect.</p>
+    </div>
+    <div class="stats-card">
+      <h3>Critical Systems Targeted</h3>
+      <p>Over 3200 enterprise systems breached globally last year.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-about">
+      <h3>AllSafe Cybersecurity</h3>
+      <p>Proactive defense & strategic intelligence to secure your world.</p>
+    </div>
+    <div class="footer-quick">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="who.html">Who</a></li>
+        <li><a href="threats.html">Threats</a></li>
+        <li><a href="trust.html">Trust</a></li>
+      </ul>
+    </div>
+    <div class="footer-term-wrap">
+      <div class="terminal" id="terminal"></div>
+    </div>
+  </div>
+  <div class="copyright">© <span id="year"></span> AllSafe — All rights reserved.</div>
+</footer>
+
+<script src="threats.js"></script>
+</body>
+</html>
